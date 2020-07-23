@@ -25,5 +25,6 @@ public class Cell : MonoBehaviour
     public void SetDisabled(bool disabled)
     {
         image.color = disabled ? disabledImageColor : baseImageColor;
+        dayText.gameObject.SetActive(!disabled);
     }
 }
