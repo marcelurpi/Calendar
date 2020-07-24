@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Cell : MonoBehaviour
 {
     [SerializeField] private Color disabledImageColor = Color.white;
+    [SerializeField] private TextMeshProUGUI contentText = null;
     [SerializeField] private TextMeshProUGUI dayText = null;
     [SerializeField] private Image image = null;
 
@@ -26,5 +27,10 @@ public class Cell : MonoBehaviour
     {
         image.color = disabled ? disabledImageColor : baseImageColor;
         dayText.gameObject.SetActive(!disabled);
+    }
+
+    public void SetContent(string content)
+    {
+        contentText.text = content;
     }
 }

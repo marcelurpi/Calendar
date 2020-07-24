@@ -9,6 +9,7 @@ public class Month : MonoBehaviour
     [SerializeField] private int days = 0;
     [SerializeField] private int offset = 0;
     [SerializeField] private Cell[] cells = null;
+
     private void Start()
     {
         GenerateDays();
@@ -17,6 +18,11 @@ public class Month : MonoBehaviour
     private void OnValidate()
     {
         GenerateDays();
+    }
+
+    public Cell GetCellFromDay(int day)
+    {
+        return cells[day - 1 + offset];
     }
 
     [ContextMenu("GetChildrenCells")]
@@ -33,7 +39,6 @@ public class Month : MonoBehaviour
         cells = childrenCells.ToArray();
     }
 
-    [ContextMenu("Generate Days")]
     private void GenerateDays()
     {
         for (int i = 0; i < cells.Length; i++)
