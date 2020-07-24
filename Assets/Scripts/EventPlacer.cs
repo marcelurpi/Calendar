@@ -8,8 +8,8 @@ public class EventPlacer : MonoBehaviour
     [SerializeField] private string eventToPlace = null;
     [SerializeField] private Month month = null;
 
-    [ContextMenu("Place Event")]
-    private void PlaceEvent()
+    [Button("Place Event", ButtonMode.ActiveOnPlayMode)]
+    public void PlaceEvent()
     {
         Cell dayCell = month.GetCellFromDay(day);
         dayCell.SetContent(eventToPlace);

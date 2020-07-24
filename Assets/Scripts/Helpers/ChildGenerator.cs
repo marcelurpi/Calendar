@@ -25,7 +25,7 @@ public class ChildGenerator : MonoBehaviour
         for (int i = 0; i < toInstantiate; i++)
         {
             Object child;
-            if (Application.isEditor) child = UnityEditor.PrefabUtility.InstantiatePrefab(childPrefab, transform);
+            if (!Application.isPlaying) child = UnityEditor.PrefabUtility.InstantiatePrefab(childPrefab, transform);
             else child = Instantiate(childPrefab, transform);
             child.name = childPrefab.name.EndsWith("Prefab") ? childPrefab.name.Substring(0, childPrefab.name.Length - 6) : childPrefab.name;
         }
@@ -37,7 +37,7 @@ public class ChildGenerator : MonoBehaviour
         int toDestroy = transform.childCount - childrenNumber;
         for (int i = 0; i < toDestroy; i++)
         {
-            if(Application.isEditor) DestroyImmediate(transform.GetChild(initialChildCount - i - 1).gameObject);
+            if(!Application.isPlaying) DestroyImmediate(transform.GetChild(initialChildCount - i - 1).gameObject);
             else Destroy(transform.GetChild(initialChildCount - i - 1).gameObject);
         }
     }

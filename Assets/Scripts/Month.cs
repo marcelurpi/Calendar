@@ -25,7 +25,7 @@ public class Month : MonoBehaviour
         return cells[day - 1 + offset];
     }
 
-    [ContextMenu("GetChildrenCells")]
+    [Button("Get Children Cells", ButtonMode.ActiveAlways)]
     private void GetChildrenCells()
     {
         List<Cell> childrenCells = new List<Cell>();
@@ -39,6 +39,7 @@ public class Month : MonoBehaviour
         cells = childrenCells.ToArray();
     }
 
+    [Button("Generate Days", ButtonMode.ActiveAlways)]
     private void GenerateDays()
     {
         for (int i = 0; i < cells.Length; i++)

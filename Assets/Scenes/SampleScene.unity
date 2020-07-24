@@ -2147,8 +2147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8c79d7907081448a80da6da3710970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 16
-  eventToPlace: World War III
+  day: 23
+  eventToPlace: 
   month: {fileID: 2061448134}
 --- !u!1 &2071273787
 GameObject:
