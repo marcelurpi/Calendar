@@ -10,16 +10,31 @@ public class Cell : MonoBehaviour
     [SerializeField] private TextMeshProUGUI contentText = null;
     [SerializeField] private TextMeshProUGUI dayText = null;
     [SerializeField] private Image image = null;
+    [SerializeField] private Button cellButton = null;
+    [SerializeField] private EventPlacer eventPlacer = null;
 
+    private int day = 0;
     private Color baseImageColor = Color.white;
 
     private void Start()
     {
         baseImageColor = image.color;
+
+        cellButton.onClick.AddListener(CellClicked);
+    }
+
+    private void CellClicked()
+    {
+        if(Slot.slotSelected != null)
+        {
+            eventPlacer.PlaceEvent(day, Slot.slotSelected.GetEventHeld());
+            Slot.slotSelected = null;
+        }
     }
 
     public void SetDay(int day)
     {
+        this.day = day;
         dayText.text = day.ToString();
     }
 

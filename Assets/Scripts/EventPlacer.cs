@@ -9,7 +9,12 @@ public class EventPlacer : MonoBehaviour
     [SerializeField] private Month month = null;
 
     [Button("Place Event", ButtonMode.ActiveOnPlayMode)]
-    public void PlaceEvent()
+    private void PlaceInspectorEvent()
+    {
+        PlaceEvent(day, eventToPlace);
+    }
+
+    public void PlaceEvent(int day, EventData eventToPlace)
     {
         Cell dayCell = month.GetCellFromDay(day);
         dayCell.SetContent(eventToPlace.GetName());
