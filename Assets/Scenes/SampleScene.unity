@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 23
-  eventToPlace: 
+  eventToPlace: World War III
   month: {fileID: 2061448134}
 --- !u!1 &2071273787
 GameObject:
